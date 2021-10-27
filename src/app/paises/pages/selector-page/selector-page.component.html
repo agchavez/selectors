@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>Selectores anidados</h1>
+
+  <form action="" [formGroup]="myForm">
+      <div class="row">
+        <div class="col">
+          <div class="col mt-3">
+            <label for="" class="form-label">Continente: </label>
+            <select class="form-control" formControlName="region">
+              <option value="">-- Seleccione Continenete --</option>
+              <option *ngFor="let region of regions"
+               [value]="region | lowercase">{{region}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col">
+          <div class="col mt-3">
+            <label for="" class="form-label">Paises: </label>
+            <select class="form-control" formControlName="contrie">
+              <option value="">-- Seleccione Paises --</option>
+              <option *ngFor="let contrie of contries"
+               [value]="contrie.cca2">{{contrie.name.common}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+     <div class="row mt-3">
+       <div class="col">
+        <button class="btn btn-basic float-end">Guardar</button>
+       </div>
+     </div>
+  </form>
+  <h3>Formulario</h3>
+  <pre>Valid: {{myForm.valid}}</pre>
+  <pre>Value: {{myForm.value | json}}</pre>
+</div>
